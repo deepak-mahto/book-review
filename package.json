@@ -1,0 +1,23 @@
+{
+  "name": "book-review",
+  "version": "1.0.0",
+  "description": "Book review service",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tsc -b && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.0.7",
+    "prisma": "^6.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "@types/express": "^5.0.3",
+    "express": "^5.1.0"
+  }
+}
