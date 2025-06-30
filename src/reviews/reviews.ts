@@ -1,16 +1,24 @@
 import { PrismaClient } from "@prisma/client";
 import { Router } from "express";
 
-const booksRouter = Router();
+const reviewRouter = Router();
 
-booksRouter.get("/", async (req, res) => {
+reviewRouter.get("/:id/reviews", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;
+  const bookId = parseInt(req.params.id);
 
   try {
-    const books = await prisma.book.findMany();
+    const reviews = await prisma.review.findMany({
+      where: {
+        bookId,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
     res.json({
-      books,
+      reviews,
     });
   } catch (error) {
     if (error instanceof Error) {
@@ -21,27 +29,30 @@ booksRouter.get("/", async (req, res) => {
   }
 });
 
-booksRouter.post("/", async (req, res) => {
+reviewRouter.post("/:id/reviews", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;
-  const { title, author } = req.body;
+  const bookId = parseInt(req.params.id);
 
-  if (!title || !author) {
+  const { content, rating } = req.body;
+
+  if (!content || rating === undefined) {
     res.status(400).json({
-      message: "Title and Author are required",
+      message: "Content and rating are required",
     });
     return;
   }
 
   try {
-    await prisma.book.create({
+    const newReview = await prisma.review.create({
       data: {
-        title,
-        author,
+        content,
+        rating,
+        bookId,
       },
     });
 
-    res.json({
-      message: "Added a new book",
+    res.status(201).json({
+      newReview,
     });
   } catch (error) {
     if (error instanceof Error) {
@@ -53,7 +64,7 @@ booksRouter.post("/", async (req, res) => {
 });
 
 export default (prisma: PrismaClient) => {
-  const routerWithDeps = booksRouter;
+  const routerWithDeps = reviewRouter;
   routerWithDeps.use((req, _, next) => {
     req.app.set("prisma", prisma);
     next();
