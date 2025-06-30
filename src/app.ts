@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
 import booksRouter from "./routes/books";
-import reviewRouter from "./reviews/reviews";
+import reviewRouter from "./routes/reviews";
 
 const prisma = new PrismaClient();
 
