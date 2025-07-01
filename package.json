@@ -4,6 +4,8 @@
   "description": "Book review service",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc -b",
+    "start": "node dist/index.js",
     "dev": "npx tsc -b && node dist/index.js",
     "ngrok": "ngrok http 3000"
   },
