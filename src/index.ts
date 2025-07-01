@@ -11,6 +11,7 @@ async function startServer() {
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
+      console.log(`Swagger docs at http://localhost:${PORT}/api-docs`);
     });
   } catch (error) {
     console.error("Database connection failed:", error);

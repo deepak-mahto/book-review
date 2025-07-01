@@ -3,6 +3,24 @@ import { Router } from "express";
 
 const booksRouter = Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Books
+ *   description: Book management
+ */
+
+/**
+ * @swagger
+ * /books:
+ *   get:
+ *     summary: Get all books
+ *     tags: [Books]
+ *     responses:
+ *       200:
+ *         description: List of books
+ */
+
 booksRouter.get("/", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;
 
@@ -20,6 +38,28 @@ booksRouter.get("/", async (req, res) => {
     }
   }
 });
+
+/**
+ * @swagger
+ * /books:
+ *   post:
+ *     summary: Add a new book
+ *     tags: [Books]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               author:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Book created
+ */
 
 booksRouter.post("/", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;

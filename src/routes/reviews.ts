@@ -3,6 +3,30 @@ import { Router } from "express";
 
 const reviewRouter = Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Reviews
+ *   description: Review management
+ */
+
+/**
+ * @swagger
+ * /books/{id}/reviews:
+ *   get:
+ *     summary: Get reviews for a book
+ *     tags: [Reviews]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: List of reviews
+ */
+
 reviewRouter.get("/:id/reviews", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;
   const bookId = parseInt(req.params.id);
@@ -28,6 +52,34 @@ reviewRouter.get("/:id/reviews", async (req, res) => {
     }
   }
 });
+
+/**
+ * @swagger
+ * /books/{id}/reviews:
+ *   post:
+ *     summary: Add a review to a book
+ *     tags: [Reviews]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               content:
+ *                 type: string
+ *               rating:
+ *                 type: integer
+ *     responses:
+ *       201:
+ *         description: Review created
+ */
 
 reviewRouter.post("/:id/reviews", async (req, res) => {
   const prisma = req.app.get("prisma") as PrismaClient;
