@@ -4,9 +4,9 @@ const options: swaggerJSDoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Your API Title",
+      title: "Book Review Service",
       version: "1.0.0",
-      description: "API Documentation",
+      description: "Service for managing books and their reviews.",
     },
     servers: [
       {
