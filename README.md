@@ -196,35 +196,3 @@ book-review/
 ```bash
 https://book-review-vxxs.onrender.com
 ```
-
-### "Book Review" service with:
-
-1. GET /api/v1/books (list all books)
-
-```bash
-https://book-review-vxxs.onrender.com/api/v1/books
-```
-
-2. POST /api/v1/books (add a new book)
-
-```bash
-https://book-review-vxxs.onrender.com/api/v1/books
-```
-
-3. GET /api/v1/books/{id}/reviews
-
-```bash
-https://book-review-vxxs.onrender.com/api/v1/books/1/reviews
-```
-
-4. POST /api/v1/books/{id}/reviews
-
-```bash
-https://book-review-vxxs.onrender.com/api/v1/books/1/reviews
-```
-
-5. Swagger UI
-
-```bash
-https://book-review-vxxs.onrender.com/api-docs
-```
