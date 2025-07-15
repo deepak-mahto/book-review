@@ -1,10 +1,10 @@
 # Book Review Service API
 
-![Node.js 18.x](https://img.shields.io/badge/Node.js-18.x-green)
-![TypeScript 5.x](https://img.shields.io/badge/TypeScript-5.x-blue)
-![Express 4.x](https://img.shields.io/badge/Express-4.x-lightgrey)
-![Prisma 5.x](https://img.shields.io/badge/Prisma-5.x-darkblue)
-![PostgreSQL 15.x](https://img.shields.io/badge/PostgreSQL-15.x-blue)
+![Node.js 18.x](https://img.shields.io/badge/Node.js-18-green)
+![TypeScript 5.x](https://img.shields.io/badge/TypeScript-5-blue)
+![Express 4.x](https://img.shields.io/badge/Express-4-lightgrey)
+![Prisma 5.x](https://img.shields.io/badge/Prisma-5-darkblue)
+![PostgreSQL 15.x](https://img.shields.io/badge/PostgreSQL-15-blue)
 
 RESTful API service for managing books and their reviews. Built with TypeScript, Express, and Prisma ORM. Provides robust endpoints for book management and review operations with comprehensive API documentation.
 
